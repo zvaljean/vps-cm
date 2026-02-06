@@ -1,0 +1,14 @@
+[".config/home-manager"]
+type = "git-repo"
+url = "https://github.com/zvaljean/vps-hm.git"
+
+[".tmux/plugins/tpm"]
+type = "git-repo"
+url = "https://github.com/tmux-plugins/tpm.git"
+
+
+# Local Variables:
+# mode: conf-toml
+# indent-tabs-mode: nil
+# End:
+# vim: ft=toml sw=2 ts=2 et
