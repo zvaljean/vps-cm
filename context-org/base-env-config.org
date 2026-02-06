@@ -1,0 +1,46 @@
+# -*- eval: (add-hook 'after-save-hook #'org-babel-tangle); -*-
+#+title: Dot Config
+#+PROPERTY: header-args:conf :tangle yes :mkdirp yes :padline yes
+
+* environment
+#+begin_src conf :tangle ../chezmoi/dot_local/config/basic-env/env.sh
+
+  export PAGER='less'
+  export LC_TIME=en_US.UTF-8
+  export LC_ALL=en_US.UTF-8
+  export LC_CTYPE=UTF-8
+  export GNUPGHOME=~/.gnupg
+  export GPG_TTY=$(tty)
+  export EDITOR='nvim'
+  export VISUAL='vim'
+  export LANG=en_US.UTF-8
+  export NIX_REMOTE=daemon
+#+end_src
+
+* ssh 
+** user config
+#+begin_src conf :tangle ../chezmoi/dot_ssh/encrypted_config
+-----BEGIN PGP MESSAGE-----
+
+jA0ECQMKgI31TQFhiGD/0sAeAUYPEJWgWysy3HzcqtorZzYybmdHRIasx+cPTbA9
+TEtg2Pbm2jOCmN+Z8fhCkVz/8hCB8Y+F8BrIKwaHhXca8MKrv+GRxiZXK5ADTpGw
+Wu7rYqQRPVvCX/wGOkg5eBX8jAjNL23oBkbGtZYr6xxOAuOi+ZRzBkU3GIGjP/Hq
+5f2Fby0103IlLoeoyj6+jyBg1zTsimBJOp+vSx584LV83qWvmYiYtJyXzoGzUn+a
+w0N/g1hbgsRamZaVhO2guwylrW3AUXhtCGCiXS+YwQNgMED+puNbJ+h2THqmZ7Hc
+=mMZZ
+-----END PGP MESSAGE-----
+#+end_src
+
+
+* chezmoi
+
+#+begin_src conf :tangle ../chezmoi/dot_config/chezmoi/chezmoi.toml.tmpl
+format = "json"
+encryption = "gpg"
+[gpg]
+recipient = "7E7C703D57522B91"
+[pinentry]
+command = "/usr/bin/pinentry-tty"
+[edit]
+command = "nvim"
+#+end_src

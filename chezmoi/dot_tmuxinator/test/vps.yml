@@ -1,0 +1,8 @@
+name: vps 
+root: ~/workspace/
+
+windows:
+    - w-1: 
+      - pwd 
+    - w-2: 
+      - pwd
