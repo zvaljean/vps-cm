@@ -19,15 +19,25 @@
 
 * ssh 
 ** user config
+
 #+begin_src conf :tangle ../chezmoi/dot_ssh/encrypted_config
 -----BEGIN PGP MESSAGE-----
 
-jA0ECQMKgI31TQFhiGD/0sAeAUYPEJWgWysy3HzcqtorZzYybmdHRIasx+cPTbA9
-TEtg2Pbm2jOCmN+Z8fhCkVz/8hCB8Y+F8BrIKwaHhXca8MKrv+GRxiZXK5ADTpGw
-Wu7rYqQRPVvCX/wGOkg5eBX8jAjNL23oBkbGtZYr6xxOAuOi+ZRzBkU3GIGjP/Hq
-5f2Fby0103IlLoeoyj6+jyBg1zTsimBJOp+vSx584LV83qWvmYiYtJyXzoGzUn+a
-w0N/g1hbgsRamZaVhO2guwylrW3AUXhtCGCiXS+YwQNgMED+puNbJ+h2THqmZ7Hc
-=mMZZ
+hQGMA358cD1XUiuRAQv/VGB3jg7fUq8qz1GKY2Ve+fZDxxsQw2tF3/dPI9neAGyY
+ZU4e4shpjF7es0NysAgRcUvvunlex54Bk0plajGhm2IDipjZQnYcBToyC/iLUX8O
+vbMdaAYZrW/au/L7gJTc/VoUO4U1OsrdNKcv+jtv0RadGI1ZdfsIx4MHXjmn1rYL
+8mbm+L6LoVJ5KYEWHo1X9gfkTx62m/kj21gDTEQlYLXj0ZQpCLC5KBu3uDDFYBOY
+7QDFlQCpOWgsWW4do8le+XCrr9vksHoI77TCGcRVyb+GI/EC2395f7pNmiIjOpQ2
+UHYySwjIOVsE48y9kC3WfAdYiujaV7oRXTpYXC1/Y+P8Rmrp4RT3gmW1aplUlqlx
+W0Ie/aog/zGNwnemVNWWRR4RG02vCX2YXH1QfENaTXMqWybTudNM2JcgbgSKbdkb
+ILfTsaaZEaFOaI3KdZd4udwuHtPifI1zQ+x2YgiqDGq/qj29LCCMKcoHw+jhz6zS
+GGQaBuj47AapAG4iB2eK0sBCAfH4oFAQx2rf6RqogvgajXExoxJAQ9PC/+7TaxPf
+rvoKDOhbPvq3MCRKDcmB52HDq1IkgSjhYHAaDOFPtcUhjfFKNvm0Shylb9voRmsx
+RMXiHBOn0dit/aBYaa2LR93ISFhcTSkx8dmq2W4qznvNDUrQUA7tPf6Z1CfK6e3p
+lYOjtSGmo0xc6qtA8vXpe/1DjSzW3DjSDnTobPrd+SfRqVe91OycExuuHbmr/MAt
+wfj//URTqEL58R2OYlbic6YZENhQJeRTd5vy/Pnm3wySFa9UpCosOonuKlMuphpy
+AAvGntnKJYD2rAJ+nQNn75G31uBR3dFIMgCPu1dNn3zkiEn/
+=EyHx
 -----END PGP MESSAGE-----
 #+end_src
 
