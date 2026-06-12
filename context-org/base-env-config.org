@@ -41,9 +41,7 @@ AAvGntnKJYD2rAJ+nQNn75G31uBR3dFIMgCPu1dNn3zkiEn/
 -----END PGP MESSAGE-----
 #+end_src
 
-
 * chezmoi
-
 #+begin_src conf :tangle ../chezmoi/dot_config/chezmoi/chezmoi.toml.tmpl
 format = "json"
 encryption = "gpg"
