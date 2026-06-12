@@ -18,7 +18,7 @@
 * basic config 
 
 #+begin_src emacs-lisp   
-        (require 'package)
+      (require 'package)
     ;;      (setq package-archives '(("gnu" . "http://mirrors.ustc.edu.cn/elpa/gnu/") 
     ;;                                 ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/") 
     ;;                                 ("nongnu" . "http://mirrors.ustc.edu.cn/elpa/nongnu/")))
@@ -137,8 +137,6 @@
   ;;   (interactive)
   ;;   (save-excursion
   ;;     (insert (format-time-string " %R "))))
-
-
 
   (defun insert-current-time()
     "Insert time at point with format-time-string."

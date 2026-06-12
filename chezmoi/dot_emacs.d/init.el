@@ -114,8 +114,6 @@ see http://xahlee.info/emacs/emacs/emacs_auto_save.html"
 ;;   (save-excursion
 ;;     (insert (format-time-string " %R "))))
 
-
-
 (defun insert-current-time()
   "Insert time at point with format-time-string."
   (interactive)
