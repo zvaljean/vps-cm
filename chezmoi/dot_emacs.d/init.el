@@ -54,7 +54,7 @@ see http://xahlee.info/emacs/emacs/emacs_auto_save.html"
 (defun open-zv-initial-file() 
   "open zv initial fiel for edit" 
   (interactive) 
-  (find-file "~/.emacs.d/emacs-init.org"))
+  (find-file "~/.local/share/chezmoi/context-org/emacs-init.org"))
 
 ;; (defun zv-package-installed-p () 
 ;;   "predicate the package wether install"
