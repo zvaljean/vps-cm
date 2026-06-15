@@ -131,14 +131,11 @@ see http://xahlee.info/emacs/emacs/emacs_auto_save.html"
   (find-font (font-spec :name font-name)))
 
 (setenv "GPG_AGENT_INFO" nil)
-(require 'epa-file)
-
-(custom-set-variables '(epg-gpg-program  "/bin/gpg2"))
-(if (eq system-type 'darwin)
-(custom-set-variables '(epg-gpg-program  "/opt/homebrew/bin/gpg")))
-
-(epa-file-enable)
-(setq epg-pinentry-mode 'loopback)
+    (require 'epa-file)
+;;    (custom-set-variables '(epg-gpg-program  "/usr/bin/gpg2"))
+    (epa-file-enable)
+;; comment this config for sshd RemoteForward
+;;    (setq epg-pinentry-mode 'loopback)
 
 (defconst zv-config-dir (locate-user-emacs-file "config") 
   "custom config path for setting file example: recentf bookmark etc .. ")
@@ -680,23 +677,6 @@ see http://xahlee.info/emacs/emacs/emacs_auto_save.html"
 
 ;;   ;;  (load (expand-file-name "~/.quicklisp/slime-helper.el")) 
 ;;   ;;   (setq inferior-lisp-program "sbcl")
-
-;; https://github.com/lorniu/go-translate
-
-;;; Code:
-
-
-(use-package go-translate
-  :config
-  (setq gts-translate-list '(("en" "zh") ( "zh" "en")) )
-  (setq gts-default-translator
-      (gts-translator
-       :picker (gts-prompt-picker)
-       :engines (list (gts-bing-engine) (gts-google-engine))
-       :render (gts-buffer-render)
-       ;; :render (gts-posframe-pop-render)
-       ;; :render (gts-kill-ring-render)
-       )))
 
 ;; (define-key global-map (kbd "C-c t") (lambda ()
   ;; 				       (interactive)

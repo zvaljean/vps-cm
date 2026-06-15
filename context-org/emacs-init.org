@@ -6,8 +6,7 @@
 #+begin_src emacs-lisp  :tangle ../chezmoi/dot_emacs.d/early-init.el
 
   (setq package-enable-at-startup nil)
-  (setq debug-on-error t)
-
+  ;; (setq debug-on-error t)
   ;; https://www.reddit.com/r/emacs/comments/1hayavx/comment/mganfyy
   ;; https://jeffkreeftmeijer.com/emacs-native-comp-log/
   (setq native-comp-jit-compilation-deny-list '(".*org-element.*" ".*ox-hugo.*")) 
@@ -161,19 +160,15 @@
 
 * gpg config
 #+begin_src emacs-lisp
-
-    (setenv "GPG_AGENT_INFO" nil)
-    (require 'epa-file)
-
-    (custom-set-variables '(epg-gpg-program  "/bin/gpg2"))
-    (if (eq system-type 'darwin)
-    (custom-set-variables '(epg-gpg-program  "/opt/homebrew/bin/gpg")))
-
-    (epa-file-enable)
-    (setq epg-pinentry-mode 'loopback)
+      (setenv "GPG_AGENT_INFO" nil)
+      (require 'epa-file)
+  ;;    (custom-set-variables '(epg-gpg-program  "/usr/bin/gpg2"))
+      (epa-file-enable)
+  ;; comment this config for sshd RemoteForward
+  ;;    (setq epg-pinentry-mode 'loopback)
 
 #+end_src
-** custom constant
+* custom constant
 
 #+begin_src emacs-lisp
   (defconst zv-config-dir (locate-user-emacs-file "config") 
@@ -887,7 +882,7 @@
 
 
 #+end_src
-** translate config
+** COMMENT translate config
 #+begin_src emacs-lisp
 
   ;; https://github.com/lorniu/go-translate

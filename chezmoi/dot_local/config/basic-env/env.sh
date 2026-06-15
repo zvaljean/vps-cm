@@ -1,10 +1,10 @@
-export PAGER='less'
-export LC_TIME=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LC_CTYPE=UTF-8
-export GNUPGHOME=~/.gnupg
-export GPG_TTY=$(tty)
-export EDITOR='nvim'
-export VISUAL='vim'
-export LANG=en_US.UTF-8
-export NIX_REMOTE=daemon
+set -gx  PAGER 'less'
+set -gx  LC_TIME en_US.UTF-8
+set -gx  LC_ALL en_US.UTF-8
+set -gx  LC_CTYPE UTF-8
+set -gx  GNUPGHOME ~/.gnupg
+set -gx  GPG_TTY $(tty)
+set -gx  EDITOR 'nvim'
+set -gx  VISUAL 'vim'
+set -gx  LANG en_US.UTF-8
+set -gx  NIX_REMOTE daemon
