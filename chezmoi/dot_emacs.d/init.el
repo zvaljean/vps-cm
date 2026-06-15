@@ -91,12 +91,12 @@ see http://xahlee.info/emacs/emacs/emacs_auto_save.html"
 
 (defun zv-org-agenda-files ()
   (list
-   (concat zv-private-dir "tasks/tasks.org")
+   (concat zv-private-dir "task/task.org.gpg")
    (concat zv-private-dir "misc/habits.org")))
 
 (defun zv-org-refile-files ()
   (list
-   (concat zv-private-dir "tasks/tasks.org")
+   (concat zv-private-dir "task/task.org.gpg")
    (concat zv-private-dir "ideas/idea.org")))
 
 
@@ -156,7 +156,7 @@ see http://xahlee.info/emacs/emacs/emacs_auto_save.html"
 (defconst zv-capture-habits (concat zv-private-dir "misc/habits.org")
   "org capture template special file: habits")
 
-(defconst zv-capture-tasks (concat zv-private-dir "tasks/tasks.org")
+(defconst zv-capture-tasks (concat zv-private-dir "task/task.org.gpg")
   "org capture template special file: tasks")
 
 (defconst zv-capture-journal (concat zv-private-dir "journal/journal.org.gpg")
