@@ -1,11 +1,10 @@
 {
   description = "Home Manager configuration of data ";
-
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -20,16 +19,11 @@
 
       homeConfigurations."data" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
         modules = [
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
           {
             home.username = "data";
             home.homeDirectory = "/home/data";
-            home.stateVersion = "25.11"; 
+            home.stateVersion = "26.05"; 
             programs.home-manager.enable = true;
           }
 
