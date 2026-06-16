@@ -94,49 +94,50 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./fish/
-    ./starship/
-    ./common/
+    ./fish
+    ./starship
+    ./common
   ];
 }
 #+end_src
 **** common tools
 #+begin_src nix :tangle ../chezmoi/dot_config/home-manager/modules/pkgs/common/default.nix :mkdirp yes
 
-{ config, pkgs, ... }:
-{
-  home.packages = builtins.attrValues {
-    inherit (pkgs)
-      ripgrep 
-      jq 
-      eza 
-      fzf 
-      just 
-      neovim
-      bat
-      delta
-      yazi
-      tmux
-      emacs
-      rsync
-      vim
-      neofetch
-      git
-      tree
-      fd
-      curl
-      caddy
-      acme-sh
-      xray
-      chezmoi
-      ruby_3_5
-      ranger
-      opencode
-      fontconfig
-    ;
-    # inherit (pkgs) 只用于一级属性, ++ 拼接列表，单独追加 pkgs.nerd-fonts.jetbrains-mono
-  } ++ [ pkgs.nerd-fonts.jetbrains-mono ];
-
+    { config, pkgs, ... }:
+    {
+      home.packages = builtins.attrValues {
+        inherit (pkgs)
+          ripgrep 
+          jq 
+          eza 
+          fzf 
+          just 
+          neovim
+          bat
+          delta
+          yazi
+          tmux
+          emacs
+          rsync
+          vim
+          #neofetch
+          fastfetch
+          git
+          tree
+          fd
+          curl
+          caddy
+          acme-sh
+          xray
+          chezmoi
+          ruby_3_5
+          ranger
+          opencode
+          fontconfig
+        ;
+        # inherit (pkgs) 只用于一级属性, ++ 拼接列表，单独追加 pkgs.nerd-fonts.jetbrains-mono
+      } ++ [ pkgs.nerd-fonts.jetbrains-mono ];
+  }
 #+end_src
 **** fish
 #+begin_src nix :tangle ../chezmoi/dot_config/home-manager/modules/pkgs/fish/default.nix :mkdirp yes

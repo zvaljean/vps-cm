@@ -1,6 +1,6 @@
-[".config/home-manager"]
-type = "git-repo"
-url = "https://github.com/zvaljean/vps-hm.git"
+#[".config/home-manager"]
+#type = "git-repo"
+#url = "https://github.com/zvaljean/vps-hm.git"
 
 [".tmux/plugins/tpm"]
 type = "git-repo"

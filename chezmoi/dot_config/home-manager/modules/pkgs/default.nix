@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./fish/
-    ./starship/
-    ./common/
+    ./fish
+    ./starship
+    ./common
   ];
 }
