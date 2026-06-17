@@ -2,6 +2,11 @@
   {
     _class = "homeManager";
 
+   xdg.configFile."test/test.sh".source = ''
+      echo "Hello, ${config.home.username}!"
+      echo "system, ${pkgs.system}!"
+    '';
+
     programs.tmux.enable = true;
 
     programs.tmux = {

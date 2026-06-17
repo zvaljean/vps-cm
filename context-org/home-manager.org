@@ -301,7 +301,7 @@ in
 	#           to find the file       Where the file is located relative to this .nix file
 	#                    |                             |
 	#                    V                             V
-	xdg.configFile."starship.toml".source = ./starship.toml;
+  xdg.configFile."starship.toml".source = ./starship.toml;
 
   programs.starship = {
     enable = true;
@@ -351,34 +351,39 @@ in
 **** tmux
 ***** nix
 #+begin_src nix :tangle ../chezmoi/dot_config/home-manager/modules/pkgs/tmux/default.nix :mkdirp yes
-    { config, pkgs, ... }:
-    {
-      _class = "homeManager";
+     { config, pkgs, ... }:
+     {
+       _class = "homeManager";
 
-      programs.tmux.enable = true;
+      xdg.configFile."test/test.sh".source = ''
+         echo "Hello, ${config.home.username}!"
+         echo "system, ${pkgs.system}!"
+       '';
 
-      programs.tmux = {
+       programs.tmux.enable = true;
 
-      tmuxinator.enable = true;
-      # 插件列表
-      plugins = with pkgs.tmuxPlugins; [
-        # 1. 简单写法：直接写插件包名
-        sensible
-        # 2. 高级写法：插件自带额外的 tmux 配置
-        {
-          plugin = resurrect;
-          extraConfig = "set -g @resurrect-strategy-vim 'session'";
-        }
-        {
-          plugin = continuum;
-          extraConfig = ''
-            set -g @continuum-restore 'on'
-            set -g @continuum-save-interval '60' # 60分钟保存一次
-          '';
-        }
-      ];
-    };
-  }
+       programs.tmux = {
+
+       tmuxinator.enable = true;
+       # 插件列表
+       plugins = with pkgs.tmuxPlugins; [
+         # 1. 简单写法：直接写插件包名
+         sensible
+         # 2. 高级写法：插件自带额外的 tmux 配置
+         {
+           plugin = resurrect;
+           extraConfig = "set -g @resurrect-strategy-vim 'session'";
+         }
+         {
+           plugin = continuum;
+           extraConfig = ''
+             set -g @continuum-restore 'on'
+             set -g @continuum-save-interval '60' # 60分钟保存一次
+           '';
+         }
+       ];
+     };
+   }
 
 #+end_src
 
