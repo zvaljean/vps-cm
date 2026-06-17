@@ -2,10 +2,14 @@
   {
     _class = "homeManager";
 
-   xdg.configFile."test/test.sh".source = ''
-      echo "Hello, ${config.home.username}!"
-      echo "system, ${pkgs.system}!"
-    '';
+  xdg.configFile."test/test.sh" = {
+  executable = true; 
+  text = ''
+      #!/usr/bin/env bash
+      echo "Hello, data!"
+      echo "system, x86_64-linux!"
+  '';
+  };
 
     programs.tmux.enable = true;
 
