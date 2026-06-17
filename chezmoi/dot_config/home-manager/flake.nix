@@ -7,22 +7,24 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
+ };
 
-  outputs =
-    { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      username = "data";
     in
     {
+      # add formatter
+      formatter.${system} = pkgs.alejandra;
 
-      homeConfigurations."data" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
           {
-            home.username = "data";
-            home.homeDirectory = "/home/data";
+            home.username = "${username}";
+            home.homeDirectory = "/home/${username}";
             home.stateVersion = "26.05"; 
             programs.home-manager.enable = true;
           }
