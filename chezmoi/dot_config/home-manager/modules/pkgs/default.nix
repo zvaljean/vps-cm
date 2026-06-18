@@ -1,7 +1,6 @@
 # https://nix-community.github.io/home-manager/index.xhtml#sec-module-auto-importing
 # modules/pkgs/default.nix
 { lib, ... }:
-
 let
   # 读取当前目录下的所有文件和文件夹
   dir = builtins.readDir ./.;
