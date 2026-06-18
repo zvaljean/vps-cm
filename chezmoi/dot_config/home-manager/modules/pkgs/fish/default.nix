@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, libs, ... }:
 {
 
   home.shell.enableFishIntegration = true;
@@ -13,8 +13,12 @@
     ;
   };
 
-  # xdg.configFile."fish/completions/tmuxinator.fish".source = "${pkgs.tmuxinator}/share/fish/vendor_completions.d/tmuxinator.fish";
   xdg.configFile."fish/completions/nix.fish".source = "${pkgs.nix}/share/fish/vendor_completions.d/nix.fish";
+  # 2. 加入判断逻辑：如果 tmuxinator 启用了，才生成这个配置文件
+  xdg.configFile."fish/completions/tmuxinator.fish" = 
+          lib.mkIf config.programs.tmux.tmuxinator.enable {
+          source = "${pkgs.tmuxinator}/share/fish/vendor_completions.d/tmuxinator.fish";
+      };
 
   programs.fish = {
     enable = true;
