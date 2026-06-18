@@ -95,29 +95,20 @@
 **** default
 #+begin_src nix :tangle ../chezmoi/dot_config/home-manager/modules/pkgs/default.nix :mkdirp yes
 # https://nix-community.github.io/home-manager/index.xhtml#sec-module-auto-importing
-# modules/pkgs/default.nix
 { lib, ... }:
 let
-  # 读取当前目录下的所有文件和文件夹
   dir = builtins.readDir ./.;
-
-  # 按照官方源码的规则定义过滤条件
   autoImportFilter = name: type:
     let
-      # 规则1：常规文件必须以 .nix 结尾，且不能是当前的 default.nix
       isValidFile = type == "regular" && name != "default.nix" && lib.strings.hasSuffix ".nix" name;
-      # 规则2：允许子目录 (通常子目录里会有自己的 default.nix 或被上层按路径引入)
       isValidDir = type == "directory";
-      # 规则3：排除任何以 "_" 开头的文件或文件夹 (类似 _experimental.nix)
       isNotIgnored = !(lib.strings.hasPrefix "_" name);
     in
       isNotIgnored && (isValidFile || isValidDir);
 
-  # 获取所有符合条件的文件/文件夹名称
   validModules = builtins.filter (name: autoImportFilter name dir.${name}) (builtins.attrNames dir);
 in
 {
-  # 映射为实际的相对路径并交给 Home Manager 的 imports 处理
   imports = map (name: ./${name}) validModules;
 }
 #+end_src
@@ -200,7 +191,6 @@ in
       };
 
        loginShellInit = ''
-       set -g fish_greeting 
 
        # -g global, -x  xexport 
        set -gx GOROOT /opt/tools/go
@@ -213,6 +203,8 @@ in
        '';
 
       interactiveShellInit = ''
+  
+       set -g fish_greeting 
 
        if test -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
           source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
@@ -351,27 +343,49 @@ in
     {
       _class = "homeManager";
 
-    xdg.configFile."test/test.sh" = {
-    executable = true; 
-    text = ''
-        #!/usr/bin/env bash
-        echo "Hello, data!"
-        echo "system, x86_64-linux!"
-    '';
-    };
+    # xdg.configFile."test/test.sh" = {
+    # executable = true; 
+    # text = ''
+    #     #!/usr/bin/env bash
+    #     echo "Hello, data!"
+    #     echo "system, x86_64-linux!"
+    # '';
+    # };
 
     programs.tmux = {
     enable = true;
-
     tmuxinator.enable = true;
+
+    terminal = "screen-256color";
+    baseIndex = 1;
+    historyLimit = 5000;
+
     # programs.tmux.extraConfig
     # --- 2. 使用 extraConfig 追加原生配置 ---
     extraConfig = ''
+        setw -g xterm-keys on
+        set -s escape-time 10                     # faster command sequences
+        set -sg repeat-time 600                   # increase repeat timeout
+        set -s focus-events on
+        set -g prefix2 None
+
       '';
     # 插件列表
     plugins = with pkgs.tmuxPlugins; [
       # 1. 简单写法：直接写插件包名
       sensible
+      # 2. Vim 窗格无缝切换插件
+      # 配合 Vim/Neovim 中的相应插件，可以用 Ctrl+hjkl 在 vim 窗口和 tmux 窗格间无缝穿梭
+      vim-tmux-navigator
+      # 3. 剪贴板增强插件
+      # 允许在 vi 模式下用 'y' 复制内容，并自动同步到系统剪贴板
+      {
+        plugin = yank;
+        extraConfig = ''
+          # 自定义 yank 插件的行为
+          set -g @yank_selection_mouse 'clipboard'
+        '';
+      } 
       # 2. 高级写法：插件自带额外的 tmux 配置
       {
         plugin = resurrect;
@@ -384,10 +398,18 @@ in
           set -g @continuum-save-interval '60' # 60分钟保存一次
         '';
       }
+      {
+        plugin = nord;
+        extraConfig = ''
+          # 如果主题有特定自定义项可以写在这里
+        '';
+      }
      ];
     };
   }
 #+end_src
+
+***** config
 
 **** zoxide
 #+begin_src nix :tangle ../chezmoi/dot_config/home-manager/modules/pkgs/zoxide/default.nix :mkdirp yes

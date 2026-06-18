@@ -36,7 +36,6 @@
     };
 
      loginShellInit = ''
-     set -g fish_greeting 
 
      # -g global, -x  xexport 
      set -gx GOROOT /opt/tools/go
@@ -49,6 +48,8 @@
      '';
 
     interactiveShellInit = ''
+
+     set -g fish_greeting 
 
      if test -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
         source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
