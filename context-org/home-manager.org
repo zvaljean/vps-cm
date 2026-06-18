@@ -162,7 +162,7 @@ in
 #+end_src
 **** fish
 #+begin_src nix :tangle ../chezmoi/dot_config/home-manager/modules/pkgs/fish/default.nix :mkdirp yes
-  { config, pkgs, libs, ... }:
+  { config, pkgs, lib, ... }:
   {
 
     home.shell.enableFishIntegration = true;
