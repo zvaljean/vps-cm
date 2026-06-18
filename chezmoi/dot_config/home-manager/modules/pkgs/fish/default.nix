@@ -8,7 +8,7 @@
   home.packages = builtins.attrValues {
     inherit (pkgs)
       grc
-      zoxide
+      # zoxide
       # tmuxinator
     ;
   };
@@ -18,7 +18,7 @@
   xdg.configFile."fish/completions/tmuxinator.fish" = 
           lib.mkIf config.programs.tmux.tmuxinator.enable {
           source = "${pkgs.tmuxinator}/share/fish/vendor_completions.d/tmuxinator.fish";
-      };
+   };
 
   programs.fish = {
     enable = true;
