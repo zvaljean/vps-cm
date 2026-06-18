@@ -37,7 +37,6 @@
 
 
      set fish_greeting 
-     ${pkgs.zoxide}/bin/zoxide init fish | source
 
 
      # -g global, -x  xexport 

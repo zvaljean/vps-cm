@@ -201,7 +201,6 @@ in
 
 
        set fish_greeting 
-       ${pkgs.zoxide}/bin/zoxide init fish | source
 
 
        # -g global, -x  xexport 
@@ -397,3 +396,15 @@ in
   }
 #+end_src
 
+
+**** zoxide
+#+begin_src nix :tangle ../chezmoi/dot_config/home-manager/modules/pkgs/zoxide/default.nix :mkdirp yes
+  { config, pkgs, lib, ... }:
+  {
+    _class = "homeManager";
+    programs.zoxide = {
+        enable = true;
+        enableFishIntegration = true;
+    };
+  }
+#+end_src
