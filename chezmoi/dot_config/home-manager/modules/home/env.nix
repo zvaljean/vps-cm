@@ -20,7 +20,8 @@
   };
 
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "emacs";
+    VIUAL = "emacs";
     TERM = "xterm-256color";
   };
 
