@@ -1,0 +1,10 @@
+name: cc-us 
+root: ~/workspace/
+
+windows:
+    - root:
+      - sudo su
+    - w-1: 
+      - ssh vps-data-cc-us 
+    - w-2: 
+      - ssh vps-data-cc-us 

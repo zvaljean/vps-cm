@@ -1,0 +1,10 @@
+name: hn-hk 
+root: ~/workspace/
+
+windows:
+    - root:
+      - sudo su
+    - w-1: 
+      - ssh vps-data-hn-hk 
+    - w-2: 
+      - ssh vps-data-hn-hk 

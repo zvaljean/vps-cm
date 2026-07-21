@@ -1,0 +1,10 @@
+name: rs-us 
+root: ~/workspace/
+
+windows:
+    - root:
+      - sudo su
+    - w-1: 
+      - ssh vps-data-rs-us 
+    - w-2: 
+      - ssh vps-data-rs-us 

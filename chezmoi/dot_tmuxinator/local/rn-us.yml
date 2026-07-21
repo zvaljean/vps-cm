@@ -1,0 +1,10 @@
+name: rn-us 
+root: ~/workspace/
+
+windows:
+    - root:
+      - sudo su
+    - w-1: 
+      - ssh vps-data-rn-us 
+    - w-2: 
+      - ssh vps-data-rn-us 
