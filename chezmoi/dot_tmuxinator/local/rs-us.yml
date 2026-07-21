@@ -3,8 +3,7 @@ root: ~/workspace/
 
 windows:
     - root:
-      - ssh vps-data-rs-us 
-      - sudo su
+      - ssh -t vps-data-rs-us "sudo su -"
     - w-1: 
       - ssh vps-data-rs-us 
     - w-2: 

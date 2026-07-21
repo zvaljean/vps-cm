@@ -3,8 +3,7 @@ root: ~/workspace/
 
 windows:
     - root:
-      - ssh vps-data-cc-us 
-      - sudo su
+      - ssh -t vps-data-cc-us "sudo su -"
     - w-1: 
       - ssh vps-data-cc-us 
     - w-2: 

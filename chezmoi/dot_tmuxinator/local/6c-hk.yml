@@ -3,8 +3,7 @@ root: ~/workspace/
 
 windows:
     - root:
-      - ssh vps-data-6c-hk 
-      - sudo su
+      - ssh -t vps-data-6c-hk "sudo su -"
     - w-1: 
       - ssh vps-data-6c-hk 
     - w-2: 
