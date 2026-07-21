@@ -3,6 +3,7 @@ root: ~/workspace/
 
 windows:
     - root:
+      - ssh vps-data-dm-hk 
       - sudo su
     - w-1: 
       - ssh vps-data-dm-hk 
