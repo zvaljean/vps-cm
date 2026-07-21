@@ -1,10 +1,8 @@
-# -*- eval: (add-hook 'after-save-hook #'org-babel-tangle); -*-
 #+title: Dot Config
-#+PROPERTY: header-args:conf :tangle yes :mkdirp yes :padline yes
 
 * environment
 - fish
-#+begin_src conf :tangle ../chezmoi/dot_local/config/basic-env/env.sh
+#+begin_src conf :tangle (concat local-dir "basic-env/env.sh")  :mkdirp yes
 
  set -gx  PAGER 'less'
  set -gx  LC_TIME en_US.UTF-8
@@ -21,30 +19,18 @@
 
 * ssh 
 ** user config
-
-#+begin_src conf :tangle ../chezmoi/dot_ssh/encrypted_config
------BEGIN PGP MESSAGE-----
-
-hQGMA358cD1XUiuRAQv/VGB3jg7fUq8qz1GKY2Ve+fZDxxsQw2tF3/dPI9neAGyY
-ZU4e4shpjF7es0NysAgRcUvvunlex54Bk0plajGhm2IDipjZQnYcBToyC/iLUX8O
-vbMdaAYZrW/au/L7gJTc/VoUO4U1OsrdNKcv+jtv0RadGI1ZdfsIx4MHXjmn1rYL
-8mbm+L6LoVJ5KYEWHo1X9gfkTx62m/kj21gDTEQlYLXj0ZQpCLC5KBu3uDDFYBOY
-7QDFlQCpOWgsWW4do8le+XCrr9vksHoI77TCGcRVyb+GI/EC2395f7pNmiIjOpQ2
-UHYySwjIOVsE48y9kC3WfAdYiujaV7oRXTpYXC1/Y+P8Rmrp4RT3gmW1aplUlqlx
-W0Ie/aog/zGNwnemVNWWRR4RG02vCX2YXH1QfENaTXMqWybTudNM2JcgbgSKbdkb
-ILfTsaaZEaFOaI3KdZd4udwuHtPifI1zQ+x2YgiqDGq/qj29LCCMKcoHw+jhz6zS
-GGQaBuj47AapAG4iB2eK0sBCAfH4oFAQx2rf6RqogvgajXExoxJAQ9PC/+7TaxPf
-rvoKDOhbPvq3MCRKDcmB52HDq1IkgSjhYHAaDOFPtcUhjfFKNvm0Shylb9voRmsx
-RMXiHBOn0dit/aBYaa2LR93ISFhcTSkx8dmq2W4qznvNDUrQUA7tPf6Z1CfK6e3p
-lYOjtSGmo0xc6qtA8vXpe/1DjSzW3DjSDnTobPrd+SfRqVe91OycExuuHbmr/MAt
-wfj//URTqEL58R2OYlbic6YZENhQJeRTd5vy/Pnm3wySFa9UpCosOonuKlMuphpy
-AAvGntnKJYD2rAJ+nQNn75G31uBR3dFIMgCPu1dNn3zkiEn/
-=EyHx
------END PGP MESSAGE-----
+*** source data
+#+name: gen-user-config
+#+header: :var data=(expand-file-name "~/.ssh/conf.d/vps/vps.conf")
+#+begin_src sh :results output
+    sed -n '/^####data-user/,/^####data-user/{//!p}'  "$data"  | chezmoi encrypt
 #+end_src
-
+*** exec
+#+begin_src conf :tangle (concat ssh-conf-dir "encrypted_private_config") :noweb yes  :mkdirp yes
+   <<gen-user-config()>>
+#+end_src
 * chezmoi
-#+begin_src conf :tangle ../chezmoi/dot_config/chezmoi/chezmoi.toml.tmpl
+#+begin_src conf :tangle (concat cm-config  "chezmoi.toml.tmpl") :mkdirp yes
 format = "json"
 encryption = "gpg"
 [gpg]
@@ -54,3 +40,13 @@ command = "/usr/bin/pinentry-tty"
 [edit]
 command = "nvim"
 #+end_src
+
+
+* local variable
+# Local Variables:
+# local-dir: "../chezmoi/dot_local/config/"
+# ssh-conf-dir: "../chezmoi/dot_ssh/"
+# cm-config: "../chezmoi/dot_config/chezmoi/"
+# eval: (add-hook 'after-save-hook #'org-babel-tangle nil t)
+# org-confirm-babel-evaluate: nil
+# End:
