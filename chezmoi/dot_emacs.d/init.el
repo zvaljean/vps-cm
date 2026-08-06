@@ -1300,18 +1300,18 @@ see http://xahlee.info/emacs/emacs/emacs_auto_save.html"
     ;; 			       (dired-hide-details-mode 1) 
     ;; 			       (hl-line-mode 1)))
 
+;;   (use-package dired-single
+;;     :load-path "other-packages/dired-single" )
+;;     (evil-collection-define-key 'normal 'dired-mode-map
+;;       "h" 'dired-single-up-directory
+;;       "l" 'dired-single-buffer))
+
+;; github config remote packages
   (use-package dired-single
-    :load-path "other-packages/dired-single" )
+    :vc (:url "https://github.com/emacsattic/dired-single.git" :rev :newest))
     (evil-collection-define-key 'normal 'dired-mode-map
       "h" 'dired-single-up-directory
       "l" 'dired-single-buffer))
-
-;; github config remote packages
-  ;(use-package dired-single
-  ;  :vc (:url "https://github.com/emacsattic/dired-single.git" :rev :newest))
-  ;  (evil-collection-define-key 'normal 'dired-mode-map
-  ;    "h" 'dired-single-up-directory
-  ;    "l" 'dired-single-buffer))
 
 ;; not use dired single
 ;;    (evil-collection-define-key 'normal 'dired-mode-map
