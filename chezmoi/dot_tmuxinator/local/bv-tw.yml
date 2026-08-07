@@ -1,0 +1,10 @@
+name: bv-tw 
+root: ~/workspace/
+
+windows:
+    - root:
+      - ssh -t vps-data-bv-tw "sudo su -"
+    - w-1: 
+      - ssh vps-data-bv-tw 
+    - w-2: 
+      - ssh vps-data-bv-tw 
