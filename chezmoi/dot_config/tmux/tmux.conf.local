@@ -58,12 +58,6 @@ tmux_conf_new_pane_retain_current_path=true
 #   - disabled (do not modify split-window bindings)
 tmux_conf_new_pane_reconnect_ssh=false
 
-# -O name	按名称排序
-# -O index	按索引排序，主要用于 Window
-# -O time	按最近活动时间排序
-# 按最近活动时间排序
-bind-key s choose-tree -s -O time
-
 
 # -- display -------------------------------------------------------------------
 
@@ -423,8 +417,17 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # set -g prefix C-a
 # bind C-a send-prefix
 
+
+
 # if you don't want Oh my tmux! to alter a binding or a setting, use #!important
 # bind c new-window -c '#{pane_current_path}' #!important
+
+
+# -O name	按名称排序
+# -O index	按索引排序，主要用于 Window
+# -O time	按最近活动时间排序
+# 按最近活动时间排 序
+bind-key s choose-tree -s -O index #!important
 
 # move status line to top
 #set -g status-position top

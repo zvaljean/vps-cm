@@ -3,7 +3,7 @@ root: ~/workspace/
 
 windows:
     - root:
-      - sudo su
+      - sudo su -
     - w-1: 
       - 
     - w-2: 
