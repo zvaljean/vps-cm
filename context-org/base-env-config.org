@@ -4,16 +4,16 @@
 - fish
 #+begin_src conf :tangle (concat local-dir "basic-env/env.sh")  :mkdirp yes
 
- set -gx  PAGER 'less'
- set -gx  LC_TIME en_US.UTF-8
- set -gx  LC_ALL en_US.UTF-8
- set -gx  LC_CTYPE UTF-8
- set -gx  GNUPGHOME ~/.gnupg
- set -gx  GPG_TTY $(tty)
- set -gx  EDITOR 'nvim'
- set -gx  VISUAL 'vim'
- set -gx  LANG en_US.UTF-8
- set -gx  NIX_REMOTE daemon
+  	set -gx  PAGER 'less'
+  	set -gx  LC_TIME en_US.UTF-8
+  	set -gx  LC_ALL en_US.UTF-8
+  	set -gx  LC_CTYPE UTF-8
+  	set -gx  GNUPGHOME ~/.gnupg
+  	set -gx  GPG_TTY $(tty)
+  	set -gx  EDITOR 'nvim'
+  	set -gx  VISUAL 'vim'
+  	set -gx  LANG en_US.UTF-8
+  	set -gx  NIX_REMOTE daemon
 
 #+end_src
 
@@ -23,22 +23,23 @@
 #+name: gen-user-config
 #+header: :var data=(expand-file-name "~/.ssh/conf.d/vps/vps.conf")
 #+begin_src sh :results output
-    sed -n '/^####data-user/,/^####data-user/{//!p}'  "$data"  | chezmoi encrypt
+  sed -n '/^####data-user/,/^####data-user/{//!p}'  "$data"  | chezmoi encrypt
 #+end_src
+
 *** exec
 #+begin_src conf :tangle (concat ssh-conf-dir "encrypted_private_config") :noweb yes  :mkdirp yes
-   <<gen-user-config()>>
+  	<<gen-user-config()>>
 #+end_src
 * chezmoi
 #+begin_src conf :tangle (concat cm-config  "chezmoi.toml.tmpl") :mkdirp yes
-format = "json"
-encryption = "gpg"
-[gpg]
-recipient = "7E7C703D57522B91"
-[pinentry]
-command = "/usr/bin/pinentry-tty"
-[edit]
-command = "nvim"
+  	format = "json"
+  	encryption = "gpg"
+  	[gpg]
+  	recipient = "7E7C703D57522B91"
+  	[pinentry]
+  	command = "/usr/bin/pinentry-tty"
+  	[edit]
+  	command = "nvim"
 #+end_src
 
 
