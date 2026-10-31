@@ -1,9 +1,8 @@
-# -*- eval: (add-hook 'after-save-hook #'org-babel-tangle); -*-
 #+title: Emacs Config
-#+PROPERTY: header-args:emacs-lisp :tangle ../chezmoi/dot_emacs.d/init.el :mkdirp yes
+#+PROPERTY: header-args:emacs-lisp :tangle (concat emacs-config "init.el") :mkdirp yes
 
 * early-init
-#+begin_src emacs-lisp  :tangle ../chezmoi/dot_emacs.d/early-init.el
+#+begin_src emacs-lisp  :tangle (concat emacs-config "early-init.el")
 
   (setq package-enable-at-startup nil)
   ;; (setq debug-on-error t)
@@ -1766,3 +1765,9 @@
 
 #+end_src
 
+
+* local variable
+# Local Variables:
+# emacs-config: "../chezmoi/dot_emacs.d/"
+# eval: (add-hook 'after-save-hook #'org-babel-tangle nil t)
+# End:
