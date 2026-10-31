@@ -1,0 +1,10 @@
+name: 6c-kr 
+root: ~/workspace/
+
+windows:
+    - root:
+      - ssh -t vps-data-6c-kr "sudo su -"
+    - w-1: 
+      - ssh vps-data-6c-kr 
+    - w-2: 
+      - ssh vps-data-6c-kr 
